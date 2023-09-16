@@ -25,7 +25,7 @@ const TableDense = () => {
       <Table sx={{ minWidth: 650 }} size='small' aria-label='a dense table'>
         <TableHead>
           <TableRow>
-            <TableCell>Dessert (100g serving)</TableCell>
+            <TableCell>On the market (100g serving)</TableCell>
             <TableCell align='right'>Calories</TableCell>
             <TableCell align='right'>Fat (g)</TableCell>
             <TableCell align='right'>Carbs (g)</TableCell>

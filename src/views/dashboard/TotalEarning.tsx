@@ -7,6 +7,7 @@ import IconButton from '@mui/material/IconButton'
 import CardHeader from '@mui/material/CardHeader'
 import CardContent from '@mui/material/CardContent'
 import LinearProgress from '@mui/material/LinearProgress'
+import UserInputs from './UserInput'
 
 // ** Icons Imports
 import MenuUp from 'mdi-material-ui/MenuUp'
@@ -29,7 +30,7 @@ const data: DataType[] = [
   {
     progress: 75,
     imgHeight: 20,
-    title: 'Zipcar',
+    title: 'Credit Score',
     color: 'primary',
     amount: '$24,895.65',
     subtitle: 'Vuejs, React & HTML',
@@ -39,19 +40,28 @@ const data: DataType[] = [
     progress: 50,
     color: 'info',
     imgHeight: 27,
-    title: 'Bitbank',
+    title: 'Salary',
     amount: '$8,650.20',
     subtitle: 'Sketch, Figma & XD',
-    imgSrc: '/images/cards/logo-bitbank.png'
+    imgSrc: '/images/cards/logo-bitbank.png'// change pic
   },
   {
     progress: 20,
     imgHeight: 20,
-    title: 'Aviato',
+    title: 'Expenses',
     color: 'secondary',
     amount: '$1,245.80',
     subtitle: 'HTML & Angular',
-    imgSrc: '/images/cards/logo-aviato.png'
+    imgSrc: '/images/cards/logo-aviato.png' // change pic
+  },
+  {
+    progress: 20,
+    imgHeight: 20,
+    title: 'Loans',
+    color: 'secondary',
+    amount: '$1,245.80',
+    subtitle: 'HTML & Angular',
+    imgSrc: '/images/cards/logo-aviato.png' // change pic
   }
 ]
 
@@ -87,7 +97,7 @@ const TotalEarning = () => {
         {data.map((item: DataType, index: number) => {
           return (
             <Box
-              key={item.title}
+              key={item.title}//
               sx={{
                 display: 'flex',
                 alignItems: 'center',
@@ -118,15 +128,9 @@ const TotalEarning = () => {
                   <Typography variant='body2' sx={{ mb: 0.5, fontWeight: 600, color: 'text.primary' }}>
                     {item.title}
                   </Typography>
-                  <Typography variant='caption'>{item.subtitle}</Typography>
+                  <Typography variant='caption'></Typography>
                 </Box>
-
-                <Box sx={{ minWidth: 85, display: 'flex', flexDirection: 'column' }}>
-                  <Typography variant='body2' sx={{ mb: 2, fontWeight: 600, color: 'text.primary' }}>
-                    {item.amount}
-                  </Typography>
-                  <LinearProgress color={item.color} value={item.progress} variant='determinate' />
-                </Box>
+                <UserInputs/>
               </Box>
             </Box>
           )

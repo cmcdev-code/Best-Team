@@ -132,8 +132,8 @@ const NotificationDropdown = () => {
             <Box sx={{ width: '100%', display: 'flex', alignItems: 'center' }}>
               <Avatar alt='Flora' src='/images/avatars/4.png' />
               <Box sx={{ mx: 4, flex: '1 1', display: 'flex', overflow: 'hidden', flexDirection: 'column' }}>
-                <MenuItemTitle>Congratulation Flora! 🎉</MenuItemTitle>
-                <MenuItemSubtitle variant='body2'>Won the monthly best seller badge</MenuItemSubtitle>
+                <MenuItemTitle>New House on sale!! 🎉</MenuItemTitle>
+                <MenuItemSubtitle variant='body2'>3 miles from one of your dream properties</MenuItemSubtitle>
               </Box>
               <Typography variant='caption' sx={{ color: 'text.disabled' }}>
                 Today
@@ -144,7 +144,7 @@ const NotificationDropdown = () => {
             <Box sx={{ width: '100%', display: 'flex', alignItems: 'center' }}>
               <Avatar sx={{ color: 'common.white', backgroundColor: 'primary.main' }}>VU</Avatar>
               <Box sx={{ mx: 4, flex: '1 1', display: 'flex', overflow: 'hidden', flexDirection: 'column' }}>
-                <MenuItemTitle>New user registered.</MenuItemTitle>
+                <MenuItemTitle>New message from user.</MenuItemTitle>
                 <MenuItemSubtitle variant='body2'>5 hours ago</MenuItemSubtitle>
               </Box>
               <Typography variant='caption' sx={{ color: 'text.disabled' }}>
@@ -156,7 +156,7 @@ const NotificationDropdown = () => {
             <Box sx={{ width: '100%', display: 'flex', alignItems: 'center' }}>
               <Avatar alt='message' src='/images/avatars/5.png' />
               <Box sx={{ mx: 4, flex: '1 1', display: 'flex', overflow: 'hidden', flexDirection: 'column' }}>
-                <MenuItemTitle>New message received 👋🏻</MenuItemTitle>
+                <MenuItemTitle>From agent:</MenuItemTitle>
                 <MenuItemSubtitle variant='body2'>You have 10 unread messages</MenuItemSubtitle>
               </Box>
               <Typography variant='caption' sx={{ color: 'text.disabled' }}>
@@ -180,8 +180,8 @@ const NotificationDropdown = () => {
             <Box sx={{ width: '100%', display: 'flex', alignItems: 'center' }}>
               <Avatar alt='order' src='/images/avatars/3.png' />
               <Box sx={{ mx: 4, flex: '1 1', display: 'flex', overflow: 'hidden', flexDirection: 'column' }}>
-                <MenuItemTitle>Revised Order 📦</MenuItemTitle>
-                <MenuItemSubtitle variant='body2'>New order revised from john</MenuItemSubtitle>
+                <MenuItemTitle>Not John Doe wants to Chat</MenuItemTitle>
+                <MenuItemSubtitle variant='body2'>2 new messages</MenuItemSubtitle>
               </Box>
               <Typography variant='caption' sx={{ color: 'text.disabled' }}>
                 19 Mar

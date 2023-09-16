@@ -19,26 +19,26 @@ const MUITable = () => {
       <Grid item xs={12}>
         <Typography variant='h5'>
           <Link href='https://mui.com/components/tables/' target='_blank'>
-            MUI Tables
+            Your Data
           </Link>
         </Typography>
         <Typography variant='body2'>Tables display sets of data. They can be fully customized</Typography>
       </Grid>
       <Grid item xs={12}>
         <Card>
-          <CardHeader title='Basic Table' titleTypographyProps={{ variant: 'h6' }} />
+          <CardHeader title='Your Dream Houses' titleTypographyProps={{ variant: 'h6' }} />
           <TableBasic />
         </Card>
       </Grid>
       <Grid item xs={12}>
         <Card>
-          <CardHeader title='Dense Table' titleTypographyProps={{ variant: 'h6' }} />
+          <CardHeader title='Your Dream Apartments' titleTypographyProps={{ variant: 'h6' }} />
           <TableDense />
         </Card>
       </Grid>
       <Grid item xs={12}>
         <Card>
-          <CardHeader title='Sticky Header' titleTypographyProps={{ variant: 'h6' }} />
+          <CardHeader title='Current Properties' titleTypographyProps={{ variant: 'h6' }} />
           <TableStickyHeader />
         </Card>
       </Grid>

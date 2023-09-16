@@ -21,15 +21,15 @@ interface MoneyType {
 
 
 
-function UserInputs() {
-  const [money, setMoney] = useState<number>(0);
+function UserInputsTerm() {
+  const [term, setTerm] = useState<number>(0);
 
   const handleMoneyChange = (e: any) => {
     const newValue = parseFloat(e.target.value);
     if (!isNaN(newValue)) {
-      setMoney(newValue);
+      setTerm(newValue);
     } else {
-      setMoney(0);
+      setTerm(0);
     }
   };
 
@@ -38,7 +38,7 @@ function UserInputs() {
         <input
         type="number"
         placeholder="Enter an amount"
-        value={money}
+        value={term}
         onChange={handleMoneyChange}
       />
     </Card>
@@ -64,25 +64,4 @@ function UserInputs() {
 //     )
 // }
 
-const UserInputBox = () => {
-    return (
-      <Card sx={{ boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)', margin: '16px', padding: '16px' }}>
-        <CardHeader
-          title="Update Information"
-          titleTypographyProps={{ sx: { lineHeight: '1.6 !important', letterSpacing: '0.15px !important' } }}
-          action={
-            <IconButton
-              size="small"
-              aria-label="settings"
-              sx={{ color: 'text.secondary' }}
-              className="card-more-options"
-            >
-              <DotsVertical />
-            </IconButton>
-          }
-        />
-      </Card>
-    );
-  };
-
-export default UserInputs;
+export default UserInputsTerm;
