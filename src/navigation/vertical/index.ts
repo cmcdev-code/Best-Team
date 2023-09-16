@@ -50,21 +50,6 @@ const navigation = (): VerticalNavItemsType => {
       sectionTitle: 'User Interface'
     },
     {
-      title: 'Typography',
-      icon: FormatLetterCase,
-      path: '/typography'
-    },
-    {
-      title: 'Icons',
-      path: '/icons',
-      icon: GoogleCirclesExtended
-    },
-    {
-      title: 'Cards',
-      icon: CreditCardOutline,
-      path: '/cards'
-    },
-    {
       title: 'Tables',
       icon: Table,
       path: '/tables'
