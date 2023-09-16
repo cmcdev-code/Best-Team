@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loan Approval Prediction</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+</head>
+<body>
+    <h1>Loan Approval Prediction</h1>
+    <form>
+        <input type="number" id="no_of_dependents" placeholder="Number of Dependents">
+        <input type="text" id="education" placeholder="Education">
+        <input type="number" id="income_annum" placeholder="Annual Income">
+        <input type="number" id="loan_amount" placeholder="Loan Amount">
+        <input type="number" id="loan_term" placeholder="Loan Term">
+        <input type="number" id="cibil_score" placeholder="CIBIL Score">
+        <input type="number" id="residential_assets_value" placeholder="Residential Assets Value">
+        <input type="number" id="commercial_assets_value" placeholder="Commercial Assets Value">
+        <input type="number" id="luxury_assets_value" placeholder="Luxury Assets Value">
+        <input type="number" id="bank_asset_value" placeholder="Bank Asset Value">
+        <button type="button" onclick="predict()">Predict</button>
+    </form>
+    <div id="output"></div>
+
+    <script>
+        async function loadModel() {
+            const model = await tf.loadLayersModel('model.json'); // Replace with the path to your model files.
+            return model;
+        }
+
+        async function predict() {
+            const no_of_dependents = parseFloat(document.getElementById('no_of_dependents').value);
+            const education = document.getElementById('education').value;
+            const income_annum = parseFloat(document.getElementById('income_annum').value);
+            const loan_amount = parseFloat(document.getElementById('loan_amount').value);
+            const loan_term = parseFloat(document.getElementById('loan_term').value);
+            const cibil_score = parseFloat(document.getElementById('cibil_score').value);
+            const residential_assets_value = parseFloat(document.getElementById('residential_assets_value').value);
+            const commercial_assets_value = parseFloat(document.getElementById('commercial_assets_value').value);
+            const luxury_assets_value = parseFloat(document.getElementById('luxury_assets_value').value);
+            const bank_asset_value = parseFloat(document.getElementById('bank_asset_value').value);
+
+            // Load the model
+            const loadedModel = await loadModel();
+
+            // Create an input tensor with the extracted values
+            const inputTensor = tf.tensor([
+                [no_of_dependents, education, income_annum, loan_amount, loan_term, cibil_score, 
+                residential_assets_value, commercial_assets_value, luxury_assets_value, bank_asset_value]
+            ]);
+
+            // Make predictions using the loaded model
+            const predictions = loadedModel.predict(inputTensor);
+
+            // Apply the sigmoid activation function
+            const sigmoid = (x) => 1 / (1 + Math.exp(-x));
+            const predictionValue = predictions.dataSync()[0];
+
+            // Display the predictions or use them as needed
+            const outputDiv = document.getElementById('output');
+            outputDiv.innerHTML = `Predicted Loan Status: ${predictionValue.toFixed(10)}`; // Display with two decimal places
+        }
+
+        // Call the loadModel function to load the model when the page loads
+        loadModel();
+    </script>
+</body>
+</html>

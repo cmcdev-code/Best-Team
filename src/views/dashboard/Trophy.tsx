@@ -34,8 +34,8 @@ const Trophy = () => {
         <Typography variant='body2' sx={{ letterSpacing: '0.25px' }}>
           Updates to your dream house
         </Typography>
-        <Typography variant='h5' sx={{ my: 4, color: 'primary.main' }}>
-          39 Days until you should buy
+        <Typography variant='h5' sx={{ my: 2, color: 'primary.main' }}>
+          39 Days to dream house
         </Typography>
         <Button size='small' variant='contained'>
           View Progress
