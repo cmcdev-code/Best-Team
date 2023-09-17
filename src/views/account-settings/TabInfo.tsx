@@ -41,7 +41,7 @@ const TabInfo = () => {
               label='Bio'
               minRows={2}
               placeholder='Bio'
-              defaultValue='The name’s John Deo. I am a tireless seeker of knowledge, occasional purveyor of wisdom and also, coincidentally, a graphic designer. Algolia helps businesses across industries quickly create relevant 😎, scalable 😀, and lightning 😍 fast search and discovery experiences.'
+              defaultValue='I am a student at Virginia Tech and I need sleep.'
             />
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -65,7 +65,7 @@ const TabInfo = () => {
               fullWidth
               label='Website'
               placeholder='https://example.com/'
-              defaultValue='https://themeselection.com/'
+              defaultValue='https://vt.hacks.com/'
             />
           </Grid>
           <Grid item xs={12} sm={6}>
