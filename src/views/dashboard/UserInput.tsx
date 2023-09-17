@@ -15,52 +15,102 @@ import { SxProps } from "@mui/material";
 import MenuUp from 'mdi-material-ui/MenuUp'
 import DotsVertical from 'mdi-material-ui/DotsVertical'
 
+//importing theme -Morris Delete if break
+import { ThemeColor } from 'src/@core/layouts/types'
 
-function parentUserInputs(){
-  const  [money,setMoney] = useState<number>(0);
-  const [credit,setCredit] = useState<number>(0);
-  const [term,setTerm]=useState<number>(0);
-  const [loan,setLoan]= useState<number>(0);
-  const [debt,setDebt]=useState<number>(0);
-  const [assets,setAssets]=useState<number>(0);
-  const [grad,setGrad]=useState<boolean>(false);
+function ParentUserInputs() {
+  // Define state variables and handlers for each variable
+  const [money, setMoney] = useState<number>(0);
+  const [credit, setCredit] = useState<number>(0);
+  const [term, setTerm] = useState<number>(0);
+  const [loan, setLoan] = useState<number>(0);
+  const [debt, setDebt] = useState<number>(0);
+  const [assets, setAssets] = useState<number>(0);
+  const [grad, setGrad] = useState<boolean>(false);
 
-  const handleMoneyChange=(e1:any)=>{
-    const newMoney=parseFloat(e1.target.value);
-    if(!isNaN(newMoney)){
-      setMoney(newMoney);
-    }else{
-      setMoney(0);
-    }
-  }
-  const handelCreditChange=(e2:any)=>{
-    const newCredit=parseFloat(e2.target.value);
-    if(!isNaN(newCredit)){
-      setCredit(newCredit);
-    }else {
-      setCredit(0);
-    }
-  }
-  const handelTermChange=(e3:any)=>{
-    const newTerm=parseFloat(e3.target.value);
-    if(!isNaN(newTerm)){
-      setTerm(newTerm);
-    }else{
-      setTerm(0);
-    }
-  }
-  const handelLoanChange=(e4:any)=>{
-    const newLoan=parseFloat(e4.target.value);
-    if(!isNaN(newLoan)){
-      setLoan(newLoan);
-    }else{
-      setLoan(0);
-    }
-  }
-  const 
-
-
+  return (
+    <div>
+      {/* Pass state variables and handlers as props to child components */}
+      <MoneyInput money={money} onMoneyChange={setMoney} />
+      <CreditInput credit={credit} onCreditChange={setCredit} />
+      <TermInput term={term} onTermChange={setTerm} />
+      <LoanInput loan={loan} onLoanChange={setLoan} />
+      <DebtInput debt={debt} onDebtChange={setDebt} />
+      <AssetsInput assets={assets} onAssetsChange={setAssets} />
+      <GradInput grad={grad} onGradChange={setGrad} />
+    </div>
+  );
 }
+
+// Define separate child components for each state variable
+function MoneyInput({ money, onMoneyChange }: { money: number; onMoneyChange: (value: number) => void }) {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newMoney = parseFloat(e.target.value);
+    if (!isNaN(newMoney)) {
+      onMoneyChange(newMoney);
+    } else {
+      onMoneyChange(0);
+    }
+  };
+
+  return (
+    <div>
+      <label>Money:</label>
+      <input
+        type="number"
+        value={money}
+        onChange={handleInputChange}
+        placeholder="Enter money"
+      />
+    </div>
+  );
+}
+
+function CreditInput({credit, onCreditChange}: {credit:number , onCreditChange: (value: number)=> void}){
+  const handleCreditInputChange = (e1: React.ChangeEvent<HTMLInputElement>)=>{
+    const newCredit= parseFloat (e1.target.value);
+    if(!isNaN(newCredit)){
+      onCreditChange(newCredit);
+    }else{
+      onCreditChange(0);
+    }
+  };
+  
+  return (
+    <div>
+      <label>Credit Score:</label>
+    <input
+      type="number"
+      value={credit}
+      onChange ={handleCreditInputChange}
+      placeholder="Enter Credit Score"
+    />
+    </div>
+  )
+  
+}
+function TermInput({term,onTermChange}:{term:number, onTermChange:(value:number)=>void}){
+  const handleTermChange= (e2: React.ChangeEvent<HTMLInputElement>)=>{
+    const newTerm=parseFloat(e2.target.value);
+    if(!isNaN(newTerm)){
+      onTermChange(newTerm);
+    }else{
+      onTermChange(0);
+    }
+  }
+  return (
+    <div>
+      <label>Term of Loan:</label>
+    <input
+      type="number"
+      value={term}
+      onChange ={handleTermChange}
+      placeholder="Enter Term of Loan"
+    />
+    </div>
+  )
+}
+
 
 
 
@@ -83,7 +133,10 @@ function UserInputs() {
         placeholder="Enter an amount"
         value={money}
         onChange={handleMoneyChange}
-        
+        sx = {{
+          color: 'ThemeColor.primary.common.white',
+          backgroundColor: `ThemeColor.primary.color.main`
+        }}
       />
     </Card>
   );

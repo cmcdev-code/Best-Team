@@ -64,22 +64,22 @@ const FormLayoutsBasic = () => {
         <form onSubmit={e => e.preventDefault()}>
           <Grid container spacing={5}>
             <Grid item xs={12}>
-              <TextField fullWidth label='Name' placeholder='Leonard Carter' />
+              <TextField fullWidth label='New Property Type ' placeholder='House, Apartment, etc' />
             </Grid>
             <Grid item xs={12}>
               <TextField
                 fullWidth
-                type='email'
-                label='Email'
-                placeholder='carterleonard@gmail.com'
+                type='address'
+                label='Address'
+                placeholder='1111 Random Rd'
                 helperText='You can use letters, numbers & periods'
               />
             </Grid>
             <Grid item xs={12}>
               <FormControl fullWidth>
-                <InputLabel htmlFor='form-layouts-basic-password'>Password</InputLabel>
+                <InputLabel htmlFor='form-layouts-basic-password'>Bedrooms</InputLabel>
                 <OutlinedInput
-                  label='Password'
+                  label='Bedrooms'
                   value={values.password}
                   id='form-layouts-basic-password'
                   onChange={handleChange('password')}
@@ -99,15 +99,15 @@ const FormLayoutsBasic = () => {
                   }
                 />
                 <FormHelperText id='form-layouts-basic-password-helper'>
-                  Use 8 or more characters with a mix of letters, numbers & symbols
+                  Use numbers like 1,2,3,etc
                 </FormHelperText>
               </FormControl>
             </Grid>
             <Grid item xs={12}>
               <FormControl fullWidth>
-                <InputLabel htmlFor='form-layouts-confirm-password'>Confirm Password</InputLabel>
+                <InputLabel htmlFor='form-layouts-confirm-password'>Bathrooms</InputLabel>
                 <OutlinedInput
-                  label='Confirm Password'
+                  label='Number of Bathrooms'
                   value={confirmPassValues.password}
                   id='form-layouts-confirm-password'
                   onChange={handleConfirmPassChange('password')}
@@ -127,7 +127,7 @@ const FormLayoutsBasic = () => {
                   }
                 />
                 <FormHelperText id='form-layouts-confirm-password-helper'>
-                  Make sure to type the same password as above
+                  Mak sure it's a number 1,2,3,etc
                 </FormHelperText>
               </FormControl>
             </Grid>
@@ -142,12 +142,12 @@ const FormLayoutsBasic = () => {
                 }}
               >
                 <Button type='submit' variant='contained' size='large'>
-                  Get Started!
+                  Get Home!
                 </Button>
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                  <Typography sx={{ mr: 2 }}>Already have an account?</Typography>
+                  <Typography sx={{ mr: 2 }}>Not finding the home you want?</Typography>
                   <Link href='/' onClick={(e: SyntheticEvent) => e.preventDefault()}>
-                    Log in
+                    Support
                   </Link>
                 </Box>
               </Box>
