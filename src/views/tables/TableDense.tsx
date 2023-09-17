@@ -12,11 +12,11 @@ const createData = (name: string, calories: number, fat: number, carbs: number, 
 }
 
 const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9)
+  createData('Apartment 1', 990000, 3, 2, 2000),
+  createData('Apartment 2', 990000, 3, 2, 2000),
+  createData('Apartment 3', 990000, 3, 2, 2000),
+  createData('Apartment 4', 990000, 3, 2, 2000),
+  createData('Apartment 5', 990000, 3, 2, 2000),
 ]
 
 const TableDense = () => {
@@ -26,10 +26,10 @@ const TableDense = () => {
         <TableHead>
           <TableRow>
             <TableCell>On the market (100g serving)</TableCell>
-            <TableCell align='right'>Calories</TableCell>
-            <TableCell align='right'>Fat (g)</TableCell>
-            <TableCell align='right'>Carbs (g)</TableCell>
-            <TableCell align='right'>Protein (g)</TableCell>
+            <TableCell align='right'>Price ($)</TableCell>
+            <TableCell align='right'>Bedrooms</TableCell>
+            <TableCell align='right'>Bathrooms</TableCell>
+            <TableCell align='right'>Square Feet</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
