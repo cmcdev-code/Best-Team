@@ -59,7 +59,7 @@ const FormLayoutsBasic = () => {
 
   return (
     <Card>
-      <CardHeader title='Basic' titleTypographyProps={{ variant: 'h6' }} />
+      <CardHeader title='Search Homes' titleTypographyProps={{ variant: 'h6' }} />
       <CardContent>
         <form onSubmit={e => e.preventDefault()}>
           <Grid container spacing={5}>

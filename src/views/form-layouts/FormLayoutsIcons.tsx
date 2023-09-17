@@ -16,15 +16,15 @@ import MessageOutline from 'mdi-material-ui/MessageOutline'
 const FormLayoutsIcons = () => {
   return (
     <Card>
-      <CardHeader title='Basic with Icons' titleTypographyProps={{ variant: 'h6' }} />
+      <CardHeader title='Already have a home in mind?' titleTypographyProps={{ variant: 'h6' }} />
       <CardContent>
         <form onSubmit={e => e.preventDefault()}>
           <Grid container spacing={5}>
             <Grid item xs={12}>
               <TextField
                 fullWidth
-                label='Full Name'
-                placeholder='Leonard Carter'
+                label='Address'
+                placeholder='2222 myFuture home Rd'
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position='start'>
@@ -37,16 +37,16 @@ const FormLayoutsIcons = () => {
             <Grid item xs={12}>
               <TextField
                 fullWidth
-                type='email'
-                label='Email'
-                placeholder='carterleonard@gmail.com'
-                helperText='You can use letters, numbers & periods'
+                type='address'
+                label='Apartment Number(if apartment)'
+                placeholder='31'
+                helperText='Use numbers'
                 InputProps={{
-                  startAdornment: (
-                    <InputAdornment position='start'>
-                      <EmailOutline />
-                    </InputAdornment>
-                  )
+                  //startAdornment: (
+                    //<InputAdornment position='start'>
+                      //<EmailOutline />
+                    //</InputAdornment>
+                  //)
                 }}
               />
             </Grid>
@@ -54,7 +54,7 @@ const FormLayoutsIcons = () => {
               <TextField
                 fullWidth
                 type='number'
-                label='Phone No.'
+                label='Phone No. of Owner'
                 placeholder='+1-123-456-8790'
                 InputProps={{
                   startAdornment: (
@@ -70,8 +70,8 @@ const FormLayoutsIcons = () => {
                 fullWidth
                 multiline
                 minRows={3}
-                label='Message'
-                placeholder='Bio...'
+                label='Message to owner'
+                placeholder='I am want to get my dream home'
                 sx={{ '& .MuiOutlinedInput-root': { alignItems: 'baseline' } }}
                 InputProps={{
                   startAdornment: (

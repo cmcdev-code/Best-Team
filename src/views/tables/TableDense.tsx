@@ -13,7 +13,7 @@ const createData = (name: string, calories: number, fat: number, carbs: number, 
 
 const rows = [
   createData('Apartment 1', 990000, 3, 2, 2000),
-  createData('Apartment 2', 990000, 3, 2, 2000),
+  createData('Apartment 2', 189000, 3, 2, 2000),
   createData('Apartment 3', 990000, 3, 2, 2000),
   createData('Apartment 4', 990000, 3, 2, 2000),
   createData('Apartment 5', 990000, 3, 2, 2000),
@@ -25,7 +25,7 @@ const TableDense = () => {
       <Table sx={{ minWidth: 650 }} size='small' aria-label='a dense table'>
         <TableHead>
           <TableRow>
-            <TableCell>On the market (100g serving)</TableCell>
+            <TableCell>On the market</TableCell>
             <TableCell align='right'>Price ($)</TableCell>
             <TableCell align='right'>Bedrooms</TableCell>
             <TableCell align='right'>Bathrooms</TableCell>

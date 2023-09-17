@@ -109,3 +109,5 @@ const DefaultPalette = (mode: PaletteMode, themeColor: ThemeColor) => {
 }
 
 export default DefaultPalette
+
+export const customColors = DefaultPalette('light', 'primary'); // You can provide default values or customize as needed

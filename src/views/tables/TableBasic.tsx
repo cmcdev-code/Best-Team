@@ -12,11 +12,11 @@ const createData:any = (name: string, cost: number, beds: number, bathrooms: num
 }
 
 const rows = [
-  createData('Property 1', 1500000, 5.0, 4, 4445),
-  createData('Property 2', 2100000, 4, 3, 10000),
-  createData('Property 3', 1150000, 3, 3, 3000),
-  createData('Property 4', 1600000, 3.7, 67, 4.3),
-  createData('Property 5', 950000, 16.0, 49, 3.9)
+  createData('Property 1', 1542000, 5.0, 4, 4445),
+  createData('Property 2', 2131000, 4, 3, 10160),
+  createData('Property 3', 1155000, 3, 3, 3210),
+  createData('Property 4', 1664000, 3, 2, 4502),
+  createData('Property 5', 953000, 2, 1, 6201)
 ]
 
 const TableBasic = () => {
@@ -25,7 +25,7 @@ const TableBasic = () => {
       <Table sx={{ minWidth: 650 }} aria-label='simple table'>
         <TableHead>
           <TableRow>
-            <TableCell>On the Market (100g serving)</TableCell>
+            <TableCell>On the Market</TableCell>
             <TableCell align='right'>Cost ($)</TableCell>
             <TableCell align='right'>Bedrooms</TableCell>
             <TableCell align='right'>Bathrooms</TableCell>
