@@ -26,12 +26,14 @@ interface DataType {
   imgHeight: number
 }
 
-
+import LoanApprovalPrediction from './ml'
 const TotalEarning = () => {
+  
   return (
     <Card>
-      
+  
       <ParentUserInputs/>
+      
     </Card>
   )
 }

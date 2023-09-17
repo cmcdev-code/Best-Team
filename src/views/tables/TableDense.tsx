@@ -11,6 +11,7 @@ const createData = (name: string, calories: number, fat: number, carbs: number, 
   return { name, calories, fat, carbs, protein }
 }
 
+
 const rows = [
   createData('Apartment 1', 990000, 3, 2, 2000),
   createData('Apartment 2', 189000, 3, 2, 2000),

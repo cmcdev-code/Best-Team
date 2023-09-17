@@ -9,18 +9,6 @@ import Card from '@mui/material/Card'
 import Typography from '@mui/material/Typography'
 
 
-// function theme(){
-//   const theme: ThemeColor();
-  
-// const inputStyle = {
-//   backgroundColor: theme.palette.primary.main, // Replace with your desired color
-//   color: theme.palette.common.white, // Text color
-//   padding: '8px', // Adjust as needed
-//   border: 'none', // Remove the default input border
-//   borderRadius: '4px', // Add rounded corners if desired
-//   outline: 'none', // Remove the default focus outline
-// };
-// }
 
 function ParentUserInputs() {
   // Define state variables and handlers for each variable
@@ -32,13 +20,25 @@ function ParentUserInputs() {
   const [assets, setAssets] = useState<number>(0);
   const [grad, setGrad] = useState<boolean>(false);
 
-  localStorage.setItem("money",money.toString());
-  localStorage.setItem("credit",credit.toString());
-  localStorage.setItem("term",term.toString());
-  localStorage.setItem("loan",loan.toString());
-  localStorage.setItem("debt",debt.toString());
-  localStorage.setItem("assets",assets.toString());
-  localStorage.setItem("grad",grad.toString());
+  // localStorage.clear()
+  // localStorage.setItem("money",money.toString());
+  // localStorage.setItem("credit",credit.toString());
+  // localStorage.setItem("term",term.toString());
+  // localStorage.setItem("loan",loan.toString());
+  // localStorage.setItem("debt",debt.toString());
+  // localStorage.setItem("assets",assets.toString());
+  // localStorage.setItem("grad",grad.toString());
+
+
+// function signalChangeToChart({onChange}){
+// const callBack() = () => {
+//  onChange(true);
+// }
+
+
+// useEffect (() => {
+//       callBack();
+// }, [money, credit, term, loan, debt, assets, grad])
 
   return (
     <div>
@@ -50,6 +50,7 @@ function ParentUserInputs() {
       <DebtInput debt={debt} onDebtChange={setDebt} />
       <AssetsInput assets={assets} onAssetsChange={setAssets} />
       <GradInput grad={grad} onGradChange={setGrad} />
+      <AiPrediction money={money} credit={credit} term={term} loan={loan} debt={debt} assets={assets} grad={grad}/>
     </div>
   );
 }
@@ -230,52 +231,119 @@ function LoanInput({loan,onLoanChange}:{loan:number, onLoanChange:(value:number)
 }
 
 
+const modelJson = {"format": "layers-model", "generatedBy": "keras v2.9.0", "convertedBy": "TensorFlow.js Converter v3.19.0", "modelTopology": {"keras_version": "2.9.0", "backend": "tensorflow", "model_config": {"class_name": "Sequential", "config": {"name": "sequential", "layers": [{"class_name": "InputLayer", "config": {"batch_input_shape": [null, 10], "dtype": "float32", "sparse": false, "ragged": false, "name": "dense_input"}}, {"class_name": "Dense", "config": {"name": "dense", "trainable": true, "batch_input_shape": [null, 10], "dtype": "float32", "units": 20, "activation": "swish", "use_bias": true, "kernel_initializer": {"class_name": "GlorotUniform", "config": {"seed": null}}, "bias_initializer": {"class_name": "Zeros", "config": {}}, "kernel_regularizer": null, "bias_regularizer": null, "activity_regularizer": null, "kernel_constraint": null, "bias_constraint": null}}, {"class_name": "Dense", "config": {"name": "dense_1", "trainable": true, "dtype": "float32", "units": 15, "activation": "swish", "use_bias": true, "kernel_initializer": {"class_name": "GlorotUniform", "config": {"seed": null}}, "bias_initializer": {"class_name": "Zeros", "config": {}}, "kernel_regularizer": null, "bias_regularizer": null, "activity_regularizer": null, "kernel_constraint": null, "bias_constraint": null}}, {"class_name": "Dense", "config": {"name": "dense_2", "trainable": true, "dtype": "float32", "units": 10, "activation": "tanh", "use_bias": true, "kernel_initializer": {"class_name": "GlorotUniform", "config": {"seed": null}}, "bias_initializer": {"class_name": "Zeros", "config": {}}, "kernel_regularizer": null, "bias_regularizer": null, "activity_regularizer": null, "kernel_constraint": null, "bias_constraint": null}}, {"class_name": "Dense", "config": {"name": "dense_3", "trainable": true, "dtype": "float32", "units": 1, "activation": "sigmoid", "use_bias": true, "kernel_initializer": {"class_name": "GlorotUniform", "config": {"seed": null}}, "bias_initializer": {"class_name": "Zeros", "config": {}}, "kernel_regularizer": null, "bias_regularizer": null, "activity_regularizer": null, "kernel_constraint": null, "bias_constraint": null}}]}}, "training_config": {"loss": "binary_crossentropy", "metrics": [[{"class_name": "MeanMetricWrapper", "config": {"name": "accuracy", "dtype": "float32", "fn": "binary_accuracy"}}]], "weighted_metrics": null, "loss_weights": null, "optimizer_config": {"class_name": "Adam", "config": {"name": "Adam", "learning_rate": 0.0010000000474974513, "decay": 0.0, "beta_1": 0.999999761581421, "beta_2": 0.9990000128746033, "epsilon": 1e-07, "amsgrad": false}}}}, "weightsManifest": [{"paths": ["group1-shard1of1.bin"], "weights": [{"name": "dense/kernel", "shape": [10, 20], "dtype": "float32"}, {"name": "dense/bias", "shape": [20], "dtype": "float32"}, {"name": "dense_1/kernel", "shape": [20, 15], "dtype": "float32"}, {"name": "dense_1/bias", "shape": [15], "dtype": "float32"}, {"name": "dense_2/kernel", "shape": [15, 10], "dtype": "float32"}, {"name": "dense_2/bias", "shape": [10], "dtype": "float32"}, {"name": "dense_3/kernel", "shape": [10, 1], "dtype": "float32"}, {"name": "dense_3/bias", "shape": [1], "dtype": "float32"}]}]};
 
 
 
 
-function UserInputs() {
-  const [money, setMoney] = useState<number>(0);
+async function loadModel() {
+  const model = await tf.loadLayersModel(tf.io.fromMemory(modelJson));
+  return model;
+}
 
-  const handleMoneyChange = (e: any) => {
-    const newValue = parseFloat(e.target.value);
-    if (!isNaN(newValue)) {
-      setMoney(newValue);
-    } else {
-      setMoney(0);
-    }
-  };
-return (
-    <Card>
-        <input
-        type="number"
-        placeholder="Enter an amount"
-        value={money}
-        onChange={handleMoneyChange}
+async function predict({
+  money,
+  credit,
+  term,
+  loan,
+  debt,
+  assets,
+  grad,
+}: {
+  money: number;
+  credit: number;
+  term: number;
+  loan: number;
+  debt: number;
+  assets: number;
+  grad: boolean;
+}) {
+  const no_of_dependents = 0;
+  const education = grad ? 1 : 0;
+  const income_annum = money;
+  const loan_amount = loan;
+  const loan_term = term;
+  const cibil_score = credit;
+  const residential_assets_value = assets / 4;
+  const commercial_assets_value = assets / 4;
+  const luxury_assets_value = (assets * 3) / 4;
+  const bank_asset_value = assets;
 
-      />
-    </Card>);
-};
+  // Load the model
+  const loadedModel = await loadModel();
 
+  // Create an input tensor with the extracted values
+  const inputTensor = tf.tensor([
+    [
+      no_of_dependents,
+      education,
+      income_annum,
+      loan_amount,
+      loan_term,
+      cibil_score,
+      residential_assets_value,
+      commercial_assets_value,
+      luxury_assets_value,
+      bank_asset_value,
+    ],
+  ]);
 
+  // Make predictions using the loaded model
+const predictions = loadedModel.predict(inputTensor);
 
+// Define a function to apply the sigmoid activation
+const sigmoid = (x: number) => 1 / (1 + Math.exp(-x));
 
-// const UserInputBox = () => {
-//     return(
-//         <Card>
-//             <CardHeader
-//                 title = 'Update Information'
-//                 titleTypographyProps={{ sx: { lineHeight: '1.6 !important', letterSpacing: '0.15px !important' } }}
-//                 action={
-//                   <IconButton size='small' aria-label='settings' className='card-more-options' sx={{ color: 'text.secondary' }}>
-//                     <DotsVertical />
-//                   </IconButton>
-//                 }
-//             />
+let predictionValue: number;
 
-//         </Card>
-//     )
-// }
+// Check if predictions is an array or a single tensor
+if (Array.isArray(predictions)) {
+  // If it's an array, assume the first tensor is the prediction
+  predictionValue = sigmoid(predictions[0].dataSync()[0]);
+} else {
+  // If it's a single tensor, directly use it for prediction
+  predictionValue = sigmoid((predictions as tf.Tensor).dataSync()[0]);
+}
+
+return predictionValue;
+}
+
+function AiPrediction({
+  money,
+  credit,
+  term,
+  loan,
+  debt,
+  assets,
+  grad,
+}: {
+  money: number;
+  credit: number;
+  term: number;
+  loan: number;
+  debt: number;
+  assets: number;
+  grad: boolean;
+}) {
+  const [prediction, setPrediction] = useState<number | null>(null);
+
+  useEffect(() => {
+    predict({ money, credit, term, loan, debt, assets, grad }).then((result) => {
+      setPrediction(result);
+    });
+  }, [money, credit, term, loan, debt, assets, grad]);
+
+  return (
+    <div>
+      {prediction !== null ? (
+        <p>The prediction result is: {prediction.toFixed(10)}</p>
+      ) : (
+        <p>Loading...</p>
+      )}
+      {/* Other JSX elements */}
+    </div>
+  );
+}
 
 
 

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import * as tf from '@tensorflow/tfjs';
-import ParentUserInputs from './UserInput';
 
 
 // var moneyGlobal=money;
@@ -14,6 +13,11 @@ import ParentUserInputs from './UserInput';
 
 function LoanApprovalPrediction() {
 
-
+return (
+    <div>
+    
+    </div>
+    );
 }
 
+export default LoanApprovalPrediction
